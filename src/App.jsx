@@ -7,7 +7,7 @@ import Info from './pages/Info'
 import './App.css'
 
 function App() {
-  const [showPreloader, setShowPreloader] = useState(true)
+  const [showPreloader, setShowPreloader] = useState(false)
   const [currentPage, setCurrentPage] = useState('home')
 
   useEffect(() => {
