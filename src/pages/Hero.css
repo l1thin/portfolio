@@ -1,0 +1,228 @@
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  filter: brightness(0.9);
+}
+
+.hero-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 2;
+}
+
+/* Top Tagline */
+.hero-top-tagline {
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+  max-width: 280px;
+}
+
+.tagline-text {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  font-style: italic;
+  letter-spacing: 0.4px;
+  word-spacing: 0.05em;
+}
+
+/* Main Name Section */
+.hero-name-section {
+  position: absolute;
+  bottom: 5.5rem;
+  left: 0;
+  right: 0;
+  padding-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hero-divider {
+  display: none;
+}
+
+.hero-name {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.first-name {
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -2px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1;
+}
+
+.last-name {
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: -1px;
+  font-style: italic;
+  font-family: 'Georgia', 'Cambria', serif;
+  line-height: 1;
+}
+
+.hero-subtitle {
+  display: none;
+}
+
+.hero-subtitle p {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+.hero-bar {
+  position: fixed;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.hero-bar-left,
+.hero-bar-center,
+.hero-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-bar-left {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: none;
+}
+
+.hero-bar-center {
+  flex: 1;
+  justify-content: center;
+  gap: 0;
+}
+
+.hero-bar-center span {
+  display: inline;
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.hero-bar a {
+  position: relative;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  transition: color 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.hero-bar a:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 1.5rem;
+  }
+
+  .hero-top-tagline {
+    top: 2rem;
+    left: 1.5rem;
+    max-width: 250px;
+  }
+
+  .tagline-text {
+    font-size: 0.8rem;
+  }
+
+  .hero-name-section {
+    bottom: 5rem;
+    padding-bottom: 1rem;
+  }
+
+  .hero-name {
+    gap: 0.75rem;
+  }
+
+  .first-name {
+    font-size: 2rem;
+  }
+
+  .last-name {
+    font-size: 2rem;
+  }
+
+  .hero-bar {
+    flex-direction: column;
+    gap: 1rem;
+    bottom: 1rem;
+    padding: 0 1rem;
+  }
+
+  .hero-bar-center {
+    order: 2;
+  }
+
+  .separator {
+    display: none;
+  }
+}

@@ -1,0 +1,18 @@
+.scramble-link {
+  display: inline-block;
+  position: relative;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.3s ease;
+  letter-spacing: 0.5px;
+  min-height: 1.2em;
+  line-height: 1.2;
+}
+
+.scramble-link:hover {
+  color: var(--accent);
+}
+
+.chr-hover {
+  cursor: pointer;
+}
