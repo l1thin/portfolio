@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import Preloader from './components/Preloader'
 import TransitionPanel from './components/TransitionPanel'
 import Hero from './pages/Hero'
@@ -8,7 +9,6 @@ import './App.css'
 
 function App() {
   const [showPreloader, setShowPreloader] = useState(false)
-  const [currentPage, setCurrentPage] = useState('home')
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -17,23 +17,15 @@ function App() {
     return () => clearTimeout(timer)
   }, [])
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'works':
-        return <Works onNavigate={setCurrentPage} />
-      case 'info':
-        return <Info onNavigate={setCurrentPage} />
-      case 'home':
-      default:
-        return <Hero onNavigate={setCurrentPage} />
-    }
-  }
-
   return (
     <>
       {showPreloader && <Preloader />}
       <TransitionPanel />
-      {renderPage()}
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/works" element={<Works />} />
+        <Route path="/info" element={<Info />} />
+      </Routes>
     </>
   )
 }

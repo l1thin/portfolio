@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import ScrambleLink from '../components/ScrambleLink'
 import './Works.css'
 
-export default function Works({ onNavigate }) {
+export default function Works() {
+  const navigate = useNavigate()
   const projects = [
     {
       id: 1,
@@ -118,7 +120,7 @@ export default function Works({ onNavigate }) {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.5 }}
       >
-        <button onClick={() => onNavigate('home')} className="back-button">← Back to Home</button>
+        <button onClick={() => navigate('/')} className="back-button">← Back to Home</button>
       </motion.div>
     </section>
   )

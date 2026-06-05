@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { useScrambleText } from '../hooks/useScrambleText'
 import ScrambleLink from '../components/ScrambleLink'
 import ScrambleButton from '../components/ScrambleButton'
 import './Hero.css'
 
-export default function Hero({ onNavigate }) {
+export default function Hero() {
+  const navigate = useNavigate()
   const portfolioData = {
     firstName: 'Lithin',
     lastName: 'Jose',
@@ -106,9 +108,9 @@ export default function Hero({ onNavigate }) {
           </div>
 
           <div className="hero-bar-right">
-            <ScrambleButton onClick={() => onNavigate('works')}>Work</ScrambleButton>
+            <ScrambleButton onClick={() => navigate('/works')}>Work</ScrambleButton>
             <span className="separator"> / </span>
-            <ScrambleButton onClick={() => onNavigate('info')}>Info</ScrambleButton>
+            <ScrambleButton onClick={() => navigate('/info')}>Info</ScrambleButton>
             <span className="separator"> / </span>
             <ScrambleLink href="mailto:lithinjosepulikkottil@gmail.com">Contact</ScrambleLink>
           </div>

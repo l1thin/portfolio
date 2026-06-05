@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import ScrambleLink from '../components/ScrambleLink'
 import './Info.css'
 
-export default function Info({ onNavigate }) {
+export default function Info() {
+  const navigate = useNavigate()
   const profileData = {
     name: 'Lithin Jose',
     role: 'Machine Learning Engineer',
@@ -191,7 +193,7 @@ export default function Info({ onNavigate }) {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <button onClick={() => onNavigate('home')} className="back-button">← Back to Home</button>
+          <button onClick={() => navigate('/')} className="back-button">← Back to Home</button>
         </motion.div>
       </div>
     </section>
