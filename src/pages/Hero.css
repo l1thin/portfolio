@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'KiwiSoda';
-  src: url('/KiwiSoda.ttf') format('truetype');
+  src: url('../assets/KiwiSoda.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -94,7 +94,7 @@
 
 .first-name {
   font-size: clamp(3rem, 10vw, 5.5rem);
-  font-weight: 700;
+  font-weight: normal;
   color: #ffffff;
   letter-spacing: -2px;
   font-family: 'KiwiSoda', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
