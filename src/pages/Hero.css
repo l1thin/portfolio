@@ -1,4 +1,10 @@
 
+@font-face {
+  font-family: 'Nothing';
+  src: url('../assets/nothing-font-5x7.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 #hero {
   position: relative;
@@ -89,10 +95,10 @@
 
 .first-name {
   font-size: clamp(3rem, 10vw, 5.5rem);
-  font-weight: 700;
+  font-weight: normal;
   color: #ffffff;
   letter-spacing: -2px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Nothing', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1;
 }
 
