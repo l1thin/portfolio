@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useScrambleText } from '../hooks/useScrambleText'
@@ -8,6 +8,26 @@ import './Hero.css'
 
 export default function Hero() {
   const navigate = useNavigate()
+  const [videoSrcMp4, setVideoSrcMp4] = useState('')
+  const [videoSrcWebm, setVideoSrcWebm] = useState('')
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    // Lazy load the video sources after the page has finished mounting
+    const timer = setTimeout(() => {
+      setVideoSrcWebm('/bg_video_optimized.webm')
+      setVideoSrcMp4('/bg_video_optimized.mp4')
+    }, 150)
+    return () => clearTimeout(timer)
+  }, [])
+
+  useEffect(() => {
+    if (videoRef.current && (videoSrcWebm || videoSrcMp4)) {
+      videoRef.current.load()
+    }
+  }, [videoSrcWebm, videoSrcMp4])
+
   const portfolioData = {
     firstName: 'Lithin',
     lastName: 'Jose',
@@ -51,13 +71,17 @@ export default function Hero() {
     <section id="hero" className="hero">
       <div className="hero-video-bg">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          className="hero-video"
+          poster="/video_poster.jpg"
+          className={`hero-video ${isVideoPlaying ? 'is-playing' : ''}`}
+          onPlaying={() => setIsVideoPlaying(true)}
         >
-          <source src="/12310771_1920_1080_24fps.mp4" type="video/mp4" />
+          {videoSrcWebm && <source src={videoSrcWebm} type="video/webm" />}
+          {videoSrcMp4 && <source src={videoSrcMp4} type="video/mp4" />}
         </video>
       </div>
 
